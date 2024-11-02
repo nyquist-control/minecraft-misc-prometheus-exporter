@@ -1,5 +1,5 @@
 import json
-from typing import Dict, List, Generator
+from typing import Any, Dict, List, Generator
 
 from prometheus_client.core import CounterMetricFamily, REGISTRY
 from prometheus_client.registry import Collector
@@ -22,7 +22,7 @@ def get_stat_file(server_path: str, uuid: str) -> Dict[str, Dict]:
         return (json.load(f)["stats"])
 
 
-def get_player_stats(server_path: str) -> Generator[PlayerMetadata]:
+def get_player_stats(server_path: str) -> Generator[PlayerMetadata, Any, Any]:
     """Returns a dict where the key is the player uuid and value is the player name"""
     users_path = server_path + "/usercache.json"
     with open(users_path, "r") as f:

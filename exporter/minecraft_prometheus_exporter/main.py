@@ -10,9 +10,9 @@ prometheus_client.REGISTRY.unregister(prometheus_client.PLATFORM_COLLECTOR)
 prometheus_client.REGISTRY.unregister(prometheus_client.PROCESS_COLLECTOR)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Start up the server to expose the metrics
     prometheus_client.start_http_server(8000)
 
     while True:
-        time.sleep(20)
+        time.sleep(10)

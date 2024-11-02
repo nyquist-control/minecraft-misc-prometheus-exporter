@@ -1,0 +1,30 @@
+services:
+  prometheus:
+    container_name: prometheus
+    image: prometheus
+    build: ./prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - dashboard
+  exporter:
+    container_name: exporter
+    image: exporter
+    build: ./exporter
+    ports:
+      - "8000:8000"
+    networks:
+      - dashboard
+  grafana:
+    container_name: grafana
+    image: grafana
+    build: ./grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - dashboard
+
+networks:
+  dashboard:
+    name: dashboard
+    external: true
