@@ -1,0 +1,7 @@
+apiVersion: 1
+
+providers:
+  - name: Minecraft Prom Exporter
+    options:
+      path:
+        /var/lib/grafana/dashboards
