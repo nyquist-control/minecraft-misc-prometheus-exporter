@@ -15,6 +15,10 @@ services:
       - "8000:8000"
     networks:
       - dashboard
+    volumes:
+      - type: bind
+        source: /opt/minecraft
+        target: /opt/minecraft
   grafana:
     container_name: grafana
     image: grafana
