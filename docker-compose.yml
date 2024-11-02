@@ -6,7 +6,7 @@ services:
     ports:
       - "9090:9090"
     networks:
-      - prometheus
+      - dashboard
   exporter:
     container_name: exporter
     image: exporter
@@ -14,8 +14,17 @@ services:
     ports:
       - "8000:8000"
     networks:
-      - prometheus
+      - dashboard
+  grafana:
+    container_name: grafana
+    image: grafana
+    build: ./grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - dashboard
 
 networks:
-  prometheus:
-    name: exporter_and_server
+  dashboard:
+    name: dashboard
+    external: true
