@@ -1,0 +1,21 @@
+services:
+  prometheus:
+    container_name: prometheus
+    image: prometheus
+    build: ./prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - prometheus
+  exporter:
+    container_name: exporter
+    image: exporter
+    build: ./exporter
+    ports:
+      - "8000:8000"
+    networks:
+      - prometheus
+
+networks:
+  prometheus:
+    name: exporter_and_server
