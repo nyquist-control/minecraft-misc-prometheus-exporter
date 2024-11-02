@@ -9,6 +9,7 @@ from prometheus_client.registry import Collector
 
 path = "/opt/minecraft"
 
+
 def get_player_uuids(server_path: str) -> Dict[str, str]:
     """Returns a dict where the key is the player uuid and value is the player name"""
     users_path = server_path + "/usercache.json"
@@ -39,12 +40,8 @@ class Deaths(Collector):
         player_map = get_player_uuids(path)
         deaths_counter = CounterMetricFamily("deaths", "Number of deaths for each player", labels=["player_uuid", "player_name"])
         for uuid, data in player_stats_map.items():
-            try:
-                deaths = data["minecraft:custom"]["minecraft:deaths"]
-            except KeyError:
-                deaths_counter.add_metric([uuid, player_map[uuid]], 0)
-            else:
-                deaths_counter.add_metric([uuid, player_map[uuid]], deaths)
+            deaths = data.get("minecraft:custom", 0).get("minecraft:deaths", 0)
+            deaths_counter.add_metric([uuid, player_map[uuid]], deaths)
 
         yield deaths_counter
 
@@ -55,12 +52,10 @@ class DiamondsMined(Collector):
         player_map = get_player_uuids(path)
         diamonds_mined_counter = CounterMetricFamily("diamonds_mined", "Number of diamonds mined by each player", labels=["player_uuid", "player_name"])
         for uuid, data in player_stats_map.items():
-            try:
-                mined = data["minecraft:mined"]["minecraft:deepslate_diamond_ore"]
-            except KeyError:
-                diamonds_mined_counter.add_metric([uuid, player_map[uuid]], 0)
-            else:
-                diamonds_mined_counter.add_metric([uuid, player_map[uuid]], mined)
+            deepslate = data.get("minecraft:mined", 0).get("minecraft:deepslate_diamond_ore", 0)
+            normal = data.get("minecraft:mined", 0).get("minecraft:diamond_ore", 0)
+
+            diamonds_mined_counter.add_metric([uuid, player_map[uuid]], deepslate+normal)
 
         yield diamonds_mined_counter
 

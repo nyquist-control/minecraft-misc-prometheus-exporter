@@ -2,6 +2,7 @@ import time
 
 import prometheus_client
 
+import collectors
 
 # Disable default metrics
 prometheus_client.REGISTRY.unregister(prometheus_client.GC_COLLECTOR)
