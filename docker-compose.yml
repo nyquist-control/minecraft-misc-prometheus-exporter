@@ -4,7 +4,7 @@ services:
     image: prometheus
     build: ./prometheus
     ports:
-      - "9090:9090"
+      - "127.0.0.1:9090:9090"
     networks:
       - dashboard
     volumes:
@@ -14,7 +14,7 @@ services:
     image: exporter
     build: ./exporter
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     networks:
       - dashboard
     volumes:
