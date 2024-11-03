@@ -7,6 +7,8 @@ services:
       - "9090:9090"
     networks:
       - dashboard
+    volumes:
+      - prom-data:/prometheus
   exporter:
     container_name: exporter
     image: exporter
@@ -32,3 +34,6 @@ networks:
   dashboard:
     name: dashboard
     external: true
+
+volumes:
+  prom-data:
