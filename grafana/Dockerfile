@@ -1,4 +1,4 @@
-FROM grafana/grafana:11.2.2-security-01-ubuntu
+FROM grafana/grafana:11.3.0
 
 COPY ./dashboard.json /var/lib/grafana/dashboards/
 
