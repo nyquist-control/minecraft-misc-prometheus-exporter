@@ -4,16 +4,4 @@ Exposes metrics about player stats available in the world/stats/*.json files whi
 
 Just a bit of fun. A demo dashboard is currently available at https://brandontupou.com
 
-# TODO
-
-- Metrics:
-    - [ ] minecraft:mined.* pie chart
-        - [ ] minecraft:mined.minecraft:ancient_debris counter
-        - [ ] minecraft:minecraft.minecraft:diamonds counter
-    - [ ] minecraft:killed.* pie chart
-    - [ ] minecraft:custom.minecraft:playtime stat
-    - [ ] minecraft:custom.minecraft:animals_bred stat
-    - [ ] minecraft:custom.minecraft:player_kills stat
-- [ ] Integrate with Prometheus server
-- [ ] Dockerise
-- [ ] Create Grafana dashboard
+![dashboard-example](https://private-user-images.githubusercontent.com/96446967/382602317-b5d3daa7-9a4e-4995-9067-66f38349dfd7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzA2NjUyMDYsIm5iZiI6MTczMDY2NDkwNiwicGF0aCI6Ii85NjQ0Njk2Ny8zODI2MDIzMTctYjVkM2RhYTctOWE0ZS00OTk1LTkwNjctNjZmMzgzNDlkZmQ3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTAzVDIwMTUwNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTI1YzQxYmExMDJhNzE1MGM3ZTcwMjBmNzk3NTRiOGI0YTAxMDdjOGJkOTA2NjI4OTZlYmExZTI4ZTZlMjc4NGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.kvcXtpGTfBe4KFoTLtYD5ejGZYpeHpDXWXYbATyxA0w)
